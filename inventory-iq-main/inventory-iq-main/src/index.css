@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background: #F5F7FB */
+    --background: 220 33.3% 97.3%;
+    /* Text Primary: #111827 */
+    --foreground: 221.2 39.3% 11%;
+
+    /* Cards: #FFFFFF */
+    --card: 0 0% 100%;
+    --card-foreground: 221.2 39.3% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221.2 39.3% 11%;
+
+    /* Primary: #4F46E5 */
+    --primary: 243.4 75.4% 58.6%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent Light: #E0E7FF for secondary/accent backgrounds */
+    --secondary: 226.5 100% 94.1%;
+    --secondary-foreground: 243.4 75.4% 58.6%;
+
+    /* Muted (Text Secondary: #6B7280) */
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 226.5 100% 94.1%;
+    --accent-foreground: 243.4 75.4% 58.6%;
+
+    /* Error: #EF4444 */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success: #22C55E */
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning: #F59E0B */
+    --warning: 37.7 92.1% 50.2%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info: #06B6D4 */
+    --info: 188.7 94.5% 42.7%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border: #E5E7EB */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 243.4 75.4% 58.6%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar: #111827 */
+    --sidebar-background: 221.2 39.3% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 243.4 75.4% 58.6%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 27.9% 16.9%;
+    /* #1F2937 (slate 800) for hover states on dark sidebar */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 221.2 39.3% 11%;
+    --sidebar-ring: 243.4 75.4% 58.6%;
+
+    --surface-raised: 0 0% 100%;
+    --surface-sunken: 220 33.3% 97.3%;
+  }
+
+  .dark {
+    --background: 221.2 39.3% 11%;
+    --foreground: 220 33.3% 97.3%;
+
+    --card: 215 27.9% 16.9%;
+    --card-foreground: 220 33.3% 97.3%;
+
+    --popover: 215 27.9% 16.9%;
+    --popover-foreground: 220 33.3% 97.3%;
+
+    --primary: 243.4 75.4% 58.6%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 220 33.3% 97.3%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 220 33.3% 97.3%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 37.7 92.1% 50.2%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 188.7 94.5% 42.7%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 243.4 75.4% 58.6%;
+
+    --sidebar-background: 221.2 39.3% 11%;
+    --sidebar-foreground: 220 33.3% 97.3%;
+    --sidebar-primary: 243.4 75.4% 58.6%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 220 33.3% 97.3%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 243.4 75.4% 58.6%;
+
+    --surface-raised: 215 27.9% 16.9%;
+    --surface-sunken: 221.2 39.3% 11%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .surface-raised {
+    @apply bg-card shadow-sm;
+    box-shadow: 0 0 0 1px hsl(var(--border)), 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .surface-sunken {
+    background: hsl(var(--surface-sunken));
+  }
+
+  .kpi-card {
+    @apply surface-raised rounded-lg p-5 transition-all duration-150;
+  }
+
+  .kpi-card:hover {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3), 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .status-draft {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .status-validated {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .status-completed {
+    @apply text-foreground;
+    background: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+  }
+
+  .status-pending {
+    background: hsl(var(--warning) / 0.1);
+    color: hsl(var(--warning));
+  }
+}
